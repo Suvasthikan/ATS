@@ -45,7 +45,11 @@ export default async function RootLayout({
                     Dashboard
                   </a>
                 )}
-                {token && <LogoutButton />}
+                {token && (
+                  <div className="flex items-center pl-4 border-l border-gray-200 dark:border-gray-700">
+                    <LogoutButton />
+                  </div>
+                )}
               </div>
             </div>
           </div>
