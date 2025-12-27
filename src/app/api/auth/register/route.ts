@@ -48,7 +48,7 @@ export async function POST(request: Request) {
         response.cookies.set('token', token, {
             httpOnly: true,
             secure: true, // Mandatory for Vercel (HTTPS)
-            sameSite: 'none', // Required for reliable cross-site/production redirects
+            sameSite: 'lax', // Better for same-origin production environments
             maxAge: 86400, // 24 hours
             path: '/',
         });

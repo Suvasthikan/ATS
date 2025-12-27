@@ -12,6 +12,7 @@ export default function LogoutButton() {
       });
 
       if (res.ok) {
+        router.refresh();
         router.push('/login');
       }
     } catch (error) {

@@ -31,13 +31,12 @@ export default function RegisterPage() {
         throw new Error(data.error || 'Registration failed');
       }
 
-      setTimeout(() => {
-        if (role === 'RECRUITER') {
-          window.location.href = '/dashboard';
-        } else {
-          window.location.href = '/jobs';
-        }
-      }, 100);
+      router.refresh();
+      if (role === 'RECRUITER') {
+        router.push('/dashboard');
+      } else {
+        router.push('/jobs');
+      }
     } catch (err: any) {
       setError(err.message);
     } finally {

@@ -45,7 +45,16 @@ export async function GET(request: NextRequest) {
             where,
             include: {
                 job: true,
-                candidate: true,
+                candidate: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        phone: true,
+                        resumeName: true,
+                        createdAt: true,
+                    }
+                },
             },
             orderBy: {
                 [sortBy]: sortOrder,

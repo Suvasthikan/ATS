@@ -62,7 +62,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     where,
     include: {
       job: true,
-      candidate: true,
+      candidate: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          phone: true,
+          resumeName: true,
+          createdAt: true,
+        }
+      },
       notes: {
         orderBy: { createdAt: 'desc' },
       },
